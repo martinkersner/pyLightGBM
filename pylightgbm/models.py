@@ -112,7 +112,8 @@ class GenericGMB(BaseEstimator):
 
         if self.verbose:
             while process.poll() is None:
-                line = process.stdout.readline()
+                #line = process.stdout.readline()
+                line = process.communicate()[0] # Martin Kersner
                 print(line.strip().decode('utf-8'))
         else:
             process.communicate()
@@ -152,7 +153,8 @@ class GenericGMB(BaseEstimator):
 
         if self.verbose:
             while process.poll() is None:
-                line = process.stdout.readline()
+                #line = process.stdout.readline()
+                line = process.communicate()[0] # Martin Kersner
                 print(line.strip().decode('utf-8'))
         else:
             process.communicate()
@@ -287,7 +289,8 @@ class GBMClassifier(GenericGMB, ClassifierMixin):
 
         if self.verbose:
             while process.poll() is None:
-                line = process.stdout.readline()
+                #line = process.stdout.readline()
+                line = process.communicate()[0] # Martin Kersner
                 print(line.strip().decode('utf-8'))
         else:
             process.communicate()
